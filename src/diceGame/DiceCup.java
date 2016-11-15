@@ -14,6 +14,9 @@ public class DiceCup {
 		return values;
 	}
 	
+	public void setSingleValue(int place, int newValue){
+		values[place] = newValue;
+	}
 	
 	public void setAllValues(int[] values){
 		this.values = values;
@@ -32,5 +35,4 @@ public class DiceCup {
 			values[i] = ( (int) (Math.random()*sides)+1);
 		}
 	}
-}
 }
