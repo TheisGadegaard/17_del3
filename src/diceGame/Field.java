@@ -4,7 +4,7 @@ public class Field {
 	
 	public void LandOnField(Field field){
 		
-		// We use instanceof operator to check if field has a subclass
+		// We use instanceof operator to check if field has a subclass 
 		if (field instanceof Ownable){
 			
 			//If field has the ownable subclass, check which ownable field type it is
