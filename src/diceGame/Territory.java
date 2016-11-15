@@ -12,4 +12,9 @@ public class Territory extends Ownable {
 		super(price);
 		this.rent = rent;
 	}
+	
+	@Override
+	public int getRent() {
+		return 0;
+	}
 }
