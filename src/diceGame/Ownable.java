@@ -1,5 +1,5 @@
 package diceGame;
 
-public class Ownable {
+public class Ownable extends Field {
 
 }
