@@ -13,7 +13,7 @@ public class Player {
 		return;
 		
 	}
-	
+	  
 	
 	public int getBalance(){
 		
