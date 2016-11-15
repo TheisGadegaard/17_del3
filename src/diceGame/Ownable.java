@@ -3,7 +3,7 @@
  * @author freya
  */
 
-package diceGame;
+package diceGame; 
 
 public abstract class Ownable extends Field {
 	protected int price;

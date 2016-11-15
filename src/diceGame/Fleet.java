@@ -3,7 +3,7 @@
  * @author freya
  */
 
-package diceGame;
+package diceGame; 
 
 public class Fleet extends Ownable {
 	private final int RENT_1 = 500;
