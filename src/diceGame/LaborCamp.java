@@ -8,8 +8,8 @@ package diceGame;
 public class LaborCamp extends Ownable {
 	private int baseRent;
 
-	public LaborCamp(int price, Player owner, int baseRent) {
-		super(price, owner);
+	public LaborCamp(int price, int baseRent) {
+		super(price);
 		this.baseRent = baseRent;
 	}
 	
