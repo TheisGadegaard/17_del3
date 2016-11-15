@@ -23,7 +23,7 @@ public class Field {
 				LaborCamp laborCamp = (LaborCamp)this;
 			}
 			else if(this instanceof Fleet){
-				//Reference use case "land on fleet"
+				//Reference use case "land on fleet" 
 				Fleet fleet = (Fleet)this;
 			}
 		}
