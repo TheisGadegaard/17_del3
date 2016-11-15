@@ -1,5 +1,5 @@
 /**
- * @version 1.0
+ * @version 1.1
  * @author freya
  */
 
@@ -16,5 +16,12 @@ public abstract class Ownable extends Field {
 	public int getRent(){
 		return 0;
 	}
+	
+	public Player getOwner(){
+		return owner;
+	}
 
+	public void setOwner(Player owner){
+		this.owner = owner;
+	}
 }
