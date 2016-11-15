@@ -7,7 +7,7 @@ package diceGame;
 
 public class Field {
 	
-	public void LandOnField(Player player){
+	public void landOnField(Player player){
 		
 		// We use instanceof operator to check if field has a subclass 
 		if (this instanceof Ownable){
