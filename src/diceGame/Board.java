@@ -8,5 +8,6 @@ public class Board {
 		fields[0] = new Refuge();
 		//The refuge will get typecasted into a field, but we can downcast it and get a refuge again
 		//Remember to use the appropriate constructors
+		
 	}
 }
