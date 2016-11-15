@@ -2,30 +2,30 @@ package diceGame;
 
 public class Field {
 	
-	public void LandOnField(Field field){
+	public void LandOnField(Player player){
 		
 		// We use instanceof operator to check if field has a subclass 
-		if (field instanceof Ownable){
+		if (this instanceof Ownable){
 			
 			//If field has the ownable subclass, check which ownable field type it is
-			if(field instanceof Territory){
+			if(this instanceof Territory){
 				//Reference use case "land on territory"
 				
 			}
-			else if(field instanceof LaborCamp){
+			else if(this instanceof LaborCamp){
 				//Reference use case "land on labor camp"
 				
 			}
-			else if(field instanceof Fleet){
+			else if(this instanceof Fleet){
 				//Reference use case "land on fleet"
 				
 			}
 		}
-		else if (field instanceof Tax){
+		else if (this instanceof Tax){
 			 //Reference use case "land on tax"
 			
 		}
-		else if (field instanceof Refuge){
+		else if (this instanceof Refuge){
 			//Reference use case "land on refuge"
 			
 		}
