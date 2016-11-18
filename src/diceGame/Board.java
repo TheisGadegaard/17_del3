@@ -67,6 +67,46 @@ public class Board {
 	}
 	
 	private Color determineFieldColor(Field field){
-		return Color.white;
+		Color color;
+		int red = 200;
+		int green = 200;
+		int blue = 200;
+		
+		int temp;
+		int percentage;
+		
+		//We use instanceof to determine type of field
+		if(field instanceof Territory){
+			//Territory should be green and varying in darkness after how expensive it is
+			temp = ((Territory) field).getRent();
+			percentage = 100*(temp/4000);
+			
+			red -= 2*percentage;
+			green -= percentage;
+			blue -= 2*percentage;
+			
+		}
+		else if(field instanceof Fleet){
+			//Fleet is blue
+			red -= 100;
+			green -= 100;
+		}
+		else if(field instanceof LaborCamp){
+			//LaborCamp is grey
+		}
+		else if(field instanceof Tax){
+			//Tax is yellow
+			blue -= 150;
+			
+		}
+		else if(field instanceof Refuge){
+			//Refuge is white
+			red += 50;
+			green += 50;
+			blue += 50;
+		}
+		//color is assigned values of RGB
+		color = new Color(red, green, blue);
+		return color;
 	}
 }
