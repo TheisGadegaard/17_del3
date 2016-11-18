@@ -56,9 +56,9 @@ public class Board {
 		for(int i = 0; i < fields.length; i++){
 			graphicfields[i] = new Street.Builder()
 					.setBgColor(determineFieldColor(fields[i]))
-					.setTitle("")
+					.setTitle(Messages.getFNames()[i])
 					.setDescription("")
-					.setSubText("")
+					.setSubText(Messages.getFMessages()[i])
 					.build();	
 		}
 		
