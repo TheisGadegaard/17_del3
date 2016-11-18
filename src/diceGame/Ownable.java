@@ -3,7 +3,9 @@
  * @author freya, tobias
  */
 
-package diceGame; 
+package diceGame;
+
+import desktop_resources.GUI;
 
 public abstract class Ownable extends Field {
 	protected int price;
@@ -30,8 +32,15 @@ public abstract class Ownable extends Field {
 
 	public void landOnField(Player player){
 		if (owner == null){
-			//GUI choice to buy field if it is not owned
-			//owner = player;
+			if (GUI.getUserSelection(
+					Messages.getGMessages()[0] + price + "?" //Do you want to buy field?
+					,Messages.getGMessages()[1] //Yes
+					,Messages.getGMessages()[2] //No
+					) == Messages.getGMessages()[1])
+			{//user chooses yes
+				owner = player;
+				player.setBalance(player.getBalance()-price);
+			}
 		}
 		else if (owner == player){
 			//nothing should happen if field is owned by player
