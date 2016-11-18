@@ -85,9 +85,9 @@ public class Board {
 			percentage = 100*(temp/4000.0);
 			//System.out.print(percentage);
 			
-			red -= 2*percentage;
-			green += 55-percentage;
-			blue -= 2*percentage;
+			red -= 1.9*percentage+10;
+			green -= percentage-30;
+			blue -= 0.5*percentage+150;
 			
 		}
 		else if(fields[fn] instanceof Fleet){
@@ -97,17 +97,22 @@ public class Board {
 		}
 		else if(fields[fn] instanceof LaborCamp){
 			//LaborCamp is grey
+			red -= 50;
+			green -= 50;
+			blue -= 50;
 		}
 		else if(fields[fn] instanceof Tax){
-			//Tax is yellow
+			//Tax is red
+			red += 40;
+			green -= 150;
 			blue -= 150;
 			
 		}
 		else if(fields[fn] instanceof Refuge){
-			//Refuge is white
-			red += 50;
-			green += 50;
-			blue += 50;
+			//Refuge is gold/yellow
+			red += 52;
+			green += 52;			
+			blue += 52;
 		}
 		//color is assigned values of RGB
 		color = new Color(red, green, blue);
