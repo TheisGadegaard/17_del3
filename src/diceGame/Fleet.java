@@ -15,4 +15,8 @@ public class Fleet extends Ownable {
 		super(price);
 	}
 	
+	@Override
+	public int getRent() {
+		return 0;
+	}
 }

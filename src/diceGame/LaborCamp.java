@@ -13,4 +13,8 @@ public class LaborCamp extends Ownable {
 		this.baseRent = baseRent;
 	}
 	
+	@Override
+	public int getRent() {
+		return 0;
+	}
 }
