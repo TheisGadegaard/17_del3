@@ -47,6 +47,15 @@ public class Messages {
 			,"Tower"				//Field 20
 			,"Castle"				//Field 21
 	};
+	private static String[] boardMessages = {
+			"Price:",				//0	
+			"Rent:", 				//1
+			"Recieve:",				//2
+			"Pay:",					//3
+			"or",					//4
+			"of all assets"			//5
+	};
+	
 	private static String[] generalMessages = {
 
 	};
@@ -57,6 +66,10 @@ public class Messages {
 
 	public static String[] getFNames(){
 		return fieldNames;
+	}
+	
+	public static String[] getBMessages(){
+		return boardMessages;
 	}
 
 	public static String[] getGMessages(){

@@ -7,9 +7,9 @@ public class Refuge extends Field {
 		this.bonus = bonus;
 	}
 	
-//	public int getBonus(){
-//		return bonus;
-//	}
+	public int getBonus(){
+		return bonus;
+	}
 	
 	public void landOnField(Player player){
 		player.setBalance(player.getBalance() + bonus);

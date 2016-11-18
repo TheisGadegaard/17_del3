@@ -60,8 +60,8 @@ public class Board {
 			graphicfields[i] = new Street.Builder()
 											.setBgColor(determineFieldColor(i))
 											.setTitle(Messages.getFNames()[i])
-											//.setDescription("")
-											//.setSubText(Messages.getFMessages()[i])
+											.setDescription(Messages.getFNames()[i])
+											.setSubText(determineSubText(i))
 											.build();	
 		}
 		
@@ -112,5 +112,27 @@ public class Board {
 		//color is assigned values of RGB
 		color = new Color(red, green, blue);
 		return color;
+	}
+	
+	private String determineSubText(int fn){
+		String text = "";
+		if(fields[fn] instanceof Ownable){
+			text += Messages.getBMessages()[0]; //Price:
+			text += " " + String.valueOf(((Ownable) fields[fn]).getPrice());
+		}
+		else if(fields[fn] instanceof Tax){
+			text += Messages.getBMessages()[3]; //Pay:
+			text += " " + String.valueOf(((Tax) fields[fn]).getTaxAmount());
+			if(((Tax) fields[fn]).getTaxRate() >= 0){
+				text += " " + Messages.getBMessages()[4];
+				text += " " + String.valueOf(((Tax) fields[fn]).getTaxRate());
+				text += "% " + Messages.getBMessages()[5];
+			}
+		}
+		else if(fields[fn] instanceof Refuge){
+			text += Messages.getBMessages()[2]; //Recieve:
+			text += " " + String.valueOf(((Refuge) fields[fn]).getBonus());
+		}
+		return text;
 	}
 }
