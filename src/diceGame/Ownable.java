@@ -1,6 +1,6 @@
 /**
  * @version 1.1
- * @author freya
+ * @author freya, tobias
  */
 
 package diceGame; 
@@ -21,5 +21,9 @@ public abstract class Ownable extends Field {
 
 	public void setOwner(Player owner){
 		this.owner = owner;
+	}
+	
+	public void landOnField(Player player){
+		
 	}
 }

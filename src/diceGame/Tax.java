@@ -20,4 +20,8 @@ public class Tax extends Field {
 	public int getTaxRate(){
 		return taxRate;
 	}
+	
+	public void landOnField(Player player){
+		
+	}
 }

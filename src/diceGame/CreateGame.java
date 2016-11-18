@@ -6,13 +6,20 @@ package diceGame;
 public class CreateGame {
 
 	private int playerAmount = 2;					           // Minimum required players to play the game is 2
-	private Game game = new Game(playerAmount);		// Create the game with the minimum required playerAmount
+	private Game game;		// Create the game with the minimum required playerAmount
+	
+	public CreateGame(){
+		game = new Game(); //Initialiser spil
+		//Vil du spille et nyt spil eller ændre antallet af spillere?
+		setPlayerAmount(3);//Vis + og - knapper og ændr på antal spillere
+		//Evt. mulighed for at give navne
+		game.resetGame(playerAmount); //Angiv antallet af spillere til game
+		game.playGame();
+	}
 	
 	// adds one player to the game
-	public void addPlayers() {
-		playerAmount++;
-  
-  // Change the game to have new playerAmount (This is also where the problem occures, as the game class are getting called several times now)
-  game(playerAmount);
+	private void setPlayerAmount(int playerAmount) {
+		this.playerAmount = playerAmount;
 	}
+	
 }
