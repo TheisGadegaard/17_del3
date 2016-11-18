@@ -47,6 +47,10 @@ public class Board {
 		
 	}
 	
+	public Field[] getFields(){
+		return fields;
+	}
+	
 	//TODO Add to design diagrams
 	public void showFieldsOnGUI(){
 		//Show fields on GUI is a public method that can be used to make
@@ -81,9 +85,9 @@ public class Board {
 			temp = ((Territory) field).getRent();
 			percentage = 100*(temp/4000);
 			
-			red -= 2*percentage;
+			red -= 2*percentage+50;
 			green -= percentage;
-			blue -= 2*percentage;
+			blue -= 2*percentage+50;
 			
 		}
 		else if(field instanceof Fleet){
