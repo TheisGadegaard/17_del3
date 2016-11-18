@@ -86,7 +86,7 @@ public class Board {
 			//System.out.print(percentage);
 			
 			red -= 1.9*percentage+10;
-			green -= percentage-30;
+			green -= 1.4*percentage-40;
 			blue -= 0.5*percentage+150;
 			
 		}
