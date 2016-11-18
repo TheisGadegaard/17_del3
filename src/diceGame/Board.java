@@ -35,4 +35,11 @@ public class Board {
 		fields[20] = new Territory(8000, 4000); //Castle
 		
 	}
+	
+	//TODO Add to design diagrams
+	public void showFieldsOnGUI(){
+		//Show fields on GUI is a public method that can be used to make
+		//the graphical representation of the fields with the GUI.
+		
+	}
 }
