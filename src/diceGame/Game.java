@@ -13,6 +13,7 @@ public class Game {
 		diceAmount = 2;		diceSides = 6;
 		dice = new DiceCup(diceSides,diceAmount);
 		board = new Board();
+		board.showFieldsOnGUI();
 	}
 	
 	public void resetGame(int playerAmount){
@@ -23,6 +24,5 @@ public class Game {
 	}
 	
 	public void playGame(){
-		board.showFieldsOnGUI();
 	}
 }
