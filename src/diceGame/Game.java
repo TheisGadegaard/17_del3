@@ -21,6 +21,6 @@ public class Game {
 	}
 	
 	public void playGame(){
-		
+		board.showFieldsOnGUI();
 	}
 }
