@@ -18,7 +18,7 @@ public class Piece {
 	}
 
 	// Move the piece to a position using an integer
-	public void movePieceTo(int position) {
+	public void setPosition(int position) {
 		this.position = position;
 	}
 }

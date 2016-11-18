@@ -1,5 +1,7 @@
 package diceGame;
 
+import java.awt.Color;
+
 public class Game {
 	private Board board; //An instance of the Board class
 	private Player[] players; //An array of Players
@@ -16,11 +18,11 @@ public class Game {
 	public void resetGame(int playerAmount){
 		players = new Player[playerAmount];
 		for (int i = 0; i < players.length; i++){
-			players[i] = new Player(i+1,0);
+			players[i] = new Player(i+1,0, new Piece(Color.white));
 		}
 	}
 	
 	public void playGame(){
-		
+		board.showFieldsOnGUI();
 	}
 }

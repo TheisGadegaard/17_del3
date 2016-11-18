@@ -11,7 +11,7 @@ import java.awt.Color;
 
 public class Board {
 	Field[] fields = new Field[21];
-	Street[] graphicfields;
+	Street[] graphicfields = new Street[fields.length];
 	
 	public Board(){
 		//We can instantiate an object in the field array by using a subclass' constructor
@@ -40,11 +40,15 @@ public class Board {
 		fields[20] = new Territory(8000, 4000); 		//Castle
 		
 		//Use messages class to set the names of the field class
-		String[] names = Messages.getFNames(); 		//We get the names
+		//String[] names = Messages.getFNames(); 		//We get the names
 		for(int i = 0; i < fields.length; i++){
-			fields[i].setName(names[i]); 			//We set the names
+			fields[i].setName(Messages.getFNames()[i]); 			//We set the names
 		}
 		
+	}
+	
+	public Field[] getFields(){
+		return fields;
 	}
 	
 	//TODO Add to design diagrams
@@ -52,61 +56,88 @@ public class Board {
 		//Show fields on GUI is a public method that can be used to make
 		//the graphical representation of the fields with the GUI.
 		//Board now creates the GUI board as well
-		
 		for(int i = 0; i < fields.length; i++){
 			graphicfields[i] = new Street.Builder()
-					.setBgColor(determineFieldColor(fields[i]))
-					.setTitle(Messages.getFNames()[i])
-					.setDescription("")
-					.setSubText(Messages.getFMessages()[i])
-					.build();	
+											.setBgColor(determineFieldColor(i))
+											.setTitle(Messages.getFNames()[i])
+											.setDescription(Messages.getFNames()[i])
+											.setSubText(determineSubText(i))
+											.build();	
 		}
 		
 		GUI.create(graphicfields);
-		
+		GUI.displayChanceCard();
 	}
 	
-	private Color determineFieldColor(Field field){
+	private Color determineFieldColor(int fn){
 		Color color;
 		int red = 200;
 		int green = 200;
 		int blue = 200;
 		
 		int temp;
-		int percentage;
+		double percentage;
 		
 		//We use instanceof to determine type of field
-		if(field instanceof Territory){
+		if(fields[fn] instanceof Territory){
 			//Territory should be green and varying in darkness after how expensive it is
-			temp = ((Territory) field).getRent();
-			percentage = 100*(temp/4000);
+			temp = ((Territory) fields[fn]).getRent();
+			percentage = 100*(temp/4000.0);
+			//System.out.print(percentage);
 			
-			red -= 2*percentage;
-			green -= percentage;
-			blue -= 2*percentage;
+			red -= 1.9*percentage+10;
+			green -= 1.4*percentage-40;
+			blue -= 0.5*percentage+150;
 			
 		}
-		else if(field instanceof Fleet){
+		else if(fields[fn] instanceof Fleet){
 			//Fleet is blue
 			red -= 100;
 			green -= 100;
 		}
-		else if(field instanceof LaborCamp){
+		else if(fields[fn] instanceof LaborCamp){
 			//LaborCamp is grey
+			red -= 50;
+			green -= 50;
+			blue -= 50;
 		}
-		else if(field instanceof Tax){
-			//Tax is yellow
+		else if(fields[fn] instanceof Tax){
+			//Tax is red
+			red += 40;
+			green -= 150;
 			blue -= 150;
 			
 		}
-		else if(field instanceof Refuge){
-			//Refuge is white
-			red += 50;
-			green += 50;
-			blue += 50;
+		else if(fields[fn] instanceof Refuge){
+			//Refuge is gold/yellow
+			red += 52;
+			green += 52;			
+			blue += 52;
 		}
 		//color is assigned values of RGB
 		color = new Color(red, green, blue);
 		return color;
+	}
+	
+	private String determineSubText(int fn){
+		String text = "";
+		if(fields[fn] instanceof Ownable){
+			text += Messages.getBMessages()[0]; //Price:
+			text += " " + String.valueOf(((Ownable) fields[fn]).getPrice());
+		}
+		else if(fields[fn] instanceof Tax){
+			text += Messages.getBMessages()[3]; //Pay:
+			text += " " + String.valueOf(((Tax) fields[fn]).getTaxAmount());
+			if(((Tax) fields[fn]).getTaxRate() >= 0){
+				text += " " + Messages.getBMessages()[4];
+				text += " " + String.valueOf(((Tax) fields[fn]).getTaxRate());
+				text += "% " + Messages.getBMessages()[5];
+			}
+		}
+		else if(fields[fn] instanceof Refuge){
+			text += Messages.getBMessages()[2]; //Recieve:
+			text += " " + String.valueOf(((Refuge) fields[fn]).getBonus());
+		}
+		return text;
 	}
 }
