@@ -10,4 +10,8 @@ public class Refuge extends Field {
 	public int getBonus(){
 		return bonus;
 	}
+	
+	public void landOnField(Player player){
+		
+	}
 }
