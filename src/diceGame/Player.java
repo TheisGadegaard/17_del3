@@ -40,18 +40,21 @@ public class Player {
 
 	}
 
-	public void setBalance(int amount){
-
-		this.balance = this.balance + amount;
+	public void setBalance(int balance){
+		//we shall set balance to 0 if it is negative
+		if (balance < 0){
+			balance = 0;
+		}
+		this.balance = balance;
 
 	}
 	
 	public void setOwnedField(Ownable field){
-
+		//set next empty position in Ownable array to the given field
 		for (int i = 0; i<ownedFields.length;i++){
 			if (ownedFields[i] == null){
 				ownedFields[i] = field;
-				break;
+				break; //exit the loop
 			}
 		}
 
