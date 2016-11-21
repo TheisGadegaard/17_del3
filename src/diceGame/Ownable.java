@@ -32,7 +32,7 @@ public abstract class Ownable extends Field {
 
 	public void landOnField(Player player){
 		if (owner == null){
-			if (GUI.getUserSelection(
+			if (GUI.getUserButtonPressed(
 					Messages.getGMessages()[0] + price + "?" //Do you want to buy field?
 					,Messages.getGMessages()[1] //Yes
 					,Messages.getGMessages()[2] //No
@@ -58,6 +58,9 @@ public abstract class Ownable extends Field {
 				owner.setBalance(player.getBalance() + getRent());
 				player.setBalance(player.getBalance() - getRent());
 			}
+			
+			GUI.showMessage(Messages.getGMessages()[9]);
+			
 		}
 
 	}

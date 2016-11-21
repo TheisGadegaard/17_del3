@@ -62,7 +62,11 @@ public class Messages {
 			"Nej",					//2
 			"Du har nu to muligheder",	//3
 			"Betal ",				//4
-			"% af alle ejendele "	//5
+			"% af alle ejendele ",	//5
+			"Vil du starte et nyt spil?",	//6
+			"Slå med terningerne",	//7
+			"Hvor mange spillere skal deltage i spillet?",	//8
+			"Du er landet på en anden spillers felt. Du skal betale leje."	//9
 	};
 
 	public static String[] getFMessages(){
