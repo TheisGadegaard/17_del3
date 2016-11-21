@@ -51,8 +51,8 @@ public class Messages {
 			"Pris:",				//0	
 			"Leje:", 				//1
 			"Modtag:",				//2
-			"Betal:",					//3
-			"eller",					//4
+			"Betal:",				//3
+			"eller",				//4
 			"af alle ejendele",		//5
 	};
 	
