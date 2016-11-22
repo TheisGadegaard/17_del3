@@ -26,7 +26,7 @@ public class Tax extends Field {
 	public void landOnField(Player player){
 		if (taxRate >= 0){
 			if (GUI.getUserButtonPressed(
-					Messages.getGMessages()[3] //You have two options
+					player.getName() + ": " + Messages.getGMessages()[3] //You have two options
 							,Messages.getGMessages()[4] + taxAmount //Pay taxAmount
 							,Messages.getGMessages()[4] + taxRate + Messages.getGMessages()[5] //Pay taxRate
 					) == Messages.getGMessages()[4] + taxAmount)
@@ -38,6 +38,7 @@ public class Tax extends Field {
 			}
 		}
 		else{
+			GUI.showMessage(player.getName() + ": " + Messages.getGMessages()[17] + taxAmount + Messages.getGMessages()[18]);
 			player.setBalance(player.getBalance() - taxAmount);
 		}
 	}

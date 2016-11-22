@@ -1,5 +1,7 @@
 package diceGame;
 
+import desktop_resources.GUI;
+
 public class Refuge extends Field {
 	private int bonus;
 	
@@ -12,6 +14,7 @@ public class Refuge extends Field {
 	}
 	
 	public void landOnField(Player player){
+		GUI.showMessage(player.getName() + ": " + Messages.getGMessages()[19] + bonus + ".");
 		player.setBalance(player.getBalance() + bonus);
 	}
 }

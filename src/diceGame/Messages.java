@@ -57,20 +57,31 @@ public class Messages {
 	};
 	
 	private static String[] generalMessages = {
-			"Dette felt er ikke ejet af nogen spiller. Vil du købe det for ", 	//0
-			"Ja",					//1
-			"Nej",					//2
-			"Du har nu to muligheder",	//3
-			"Betal ",				//4
-			"% af alle ejendele ",	//5
-			"Vil du starte et nyt spil?",	//6
-			"Slå med terningerne",	//7
-			"Hvor mange spillere skal deltage i spillet?",	//8
-			"Du er landet på en anden spillers felt. Du skal betale leje.",	//9
-			"Spiller ",	//10
-			"Det er spiller ", // 11
-			"'s tur.", // 12
-			"Du er landet på en arbejdslejr og skal slå med terningerne, for at bestemme hvor meget du skal betale i leje." // 13
+	/*0*/	"Denne ejendom er ikke ejet af nogen spiller. Vil du købe den for ", 	
+	/*1*/	"Ja",					
+	/*2*/	"Nej",					
+	/*3*/	"Du har nu to muligheder",	
+	/*4*/	"Betal ",				
+	/*5*/	"% af alle ejendele ",	
+	/*6*/	"Vil du starte et nyt spil?",
+	/*7*/	"Slå med terningerne",
+	/*8*/	"Hvor mange spillere skal deltage i spillet?",
+	/*9*/	"Du er landet på en anden spillers ejendom. Du skal betale ",
+	/*10*/	"Spiller ",
+	/*11*/	"Det er ",
+	/*12*/	"'s tur.",
+	/*13*/	"Du er landet på en arbejdslejr og skal slå med terningerne, for at bestemme hvor meget du skal betale i leje.",
+	/*14*/	"Tillykke ",
+	/*15*/	", du har vundet spillet!",
+	/*16*/	" i leje.",
+	/*17*/	"Du skal betale ",
+	/*18*/	" til skattefar.",
+	/*19*/	"Du modtager ",
+	/*20*/	"Du er landet på din egen ejendom og nyder de dejlige omgivelser.",
+	/*21*/	"Ejeren af denne ejendom er gået bankerot, og du slipper derfor for at betale leje.",
+	/*22*/	"",
+	/*23*/	"",
+	/*24*/	"",
 	};
 
 	public static String[] getFMessages(){
