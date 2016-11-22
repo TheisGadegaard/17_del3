@@ -68,6 +68,7 @@ public class Game {
 		dice.setAllValuesRandom();
 		System.out.println("\nSpiller " + currentPlayer.getID() + " slog: " + dice.getSum());
 
+		currentPlayer.setDiceSum(dice.getSum());
 		GUI.setDice(dice.getValues()[0], dice.getValues()[1]);
 		//Set Car/Piece
 		currentField = board.getFields()[dice.getSum()-2];

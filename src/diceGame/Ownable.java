@@ -49,10 +49,10 @@ public abstract class Ownable extends Field {
 			if (this instanceof LaborCamp){
 				//when LaborCamp we should multiply dice sum with 100 and number of owned labor camps
 				
-				//int rent = getRent()*player.getDiceSum();
+				int rent = getRent()*player.getDiceSum();
 		
-//				owner.setBalance(player.getBalance() + rent;
-//				player.setBalance(player.getBalance() - rent;
+				owner.setBalance(player.getBalance() + rent);
+				player.setBalance(player.getBalance() - rent);
 			}
 			else{
 				owner.setBalance(player.getBalance() + getRent());

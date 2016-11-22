@@ -4,6 +4,7 @@ public class Player {
 
 	private int id;
 	private int balance;
+	private int diceSum;
 	private Piece piece;
 	private Ownable[] ownedFields;
 
@@ -13,6 +14,7 @@ public class Player {
 		this.balance = balance;
 		this.piece = piece;
 		ownedFields = new Ownable[17];
+		diceSum = 0;
 
 	}
 
@@ -39,6 +41,10 @@ public class Player {
 		return ownedFields;		
 
 	}
+	
+	public int getDiceSum(){
+		return diceSum;
+	}
 
 	public void setBalance(int balance){
 		//we shall set balance to 0 if it is negative
@@ -58,6 +64,10 @@ public class Player {
 			}
 		}
 
+	}
+	
+	public void setDiceSum(int diceSum){
+		this.diceSum = diceSum;
 	}
 
 }
