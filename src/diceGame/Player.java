@@ -1,5 +1,7 @@
 package diceGame;
 
+import desktop_resources.GUI;
+
 public class Player {
 
 	private int id;
@@ -60,6 +62,7 @@ public class Player {
 		}
 		this.balance = balance;
 
+		GUI.setBalance(name, balance);
 	}
 	
 	public void setOwnedField(Ownable field){

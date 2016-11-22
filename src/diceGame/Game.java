@@ -21,7 +21,7 @@ public class Game {
 	}
 
 	public void resetGame(int playerAmount){
-		final int START_BALANCE = 1000;
+		final int START_BALANCE = 5000;
 		players = new Player[playerAmount];
 		Color color = null;
 		for (int i = 0; i < players.length; i++){
@@ -41,89 +41,61 @@ public class Game {
 			GUI.addPlayer(players[i].getName(), players[i].getBalance(), car);
 		}
 	}
-	
+
 	public void playGame(){
 		boolean winnerFound = false;
-		Player currentPlayer, nextPlayer;
+		Player currentPlayer;
 
 		//first player is player 1
 		currentPlayer = players[0];
 
 		while (winnerFound == false){
-			//			System.out.println(Messages.printNextPlayer(currentPlayer));
-			nextPlayer = playTurn(currentPlayer);
+			currentPlayer = playTurn(currentPlayer);
 
-			//			String scoreBoard = "Spiller\tBalance";
-			//			for (int i = 0; i < players.length; i++){
-			//				scoreBoard += "\n" + players[i].getID() + "\t" + players[i].getBalance();
-			//			}
-			//
-			//			GUI.getUserButtonPressed(scoreBoard, Messages.getGMessages()[7]);
-
-			//Find out how many players are left in game
-			int playersLeft = 0;
-			for (Player i : players){
-				if (i.getBalance() != 0){
-					playersLeft++;
-				}
-			}
-
-			if (playersLeft == 1){
+			if (players.length == 1){
 				winnerFound = true;
 			}
-
-			currentPlayer = nextPlayer;
 		}
-		
-				GUI.showMessage("Tillykke " + currentPlayer.getName() + "!");
+
+		GUI.showMessage(Messages.getGMessages()[14] + currentPlayer.getName() + Messages.getGMessages()[15]);
 
 	}
 
 	private Player playTurn(Player currentPlayer){
-		GUI.getUserButtonPressed(Messages.getGMessages()[11] + currentPlayer.getID() + Messages.getGMessages()[12], Messages.getGMessages()[7]);
-		dice.setAllValuesRandom();
+		GUI.getUserButtonPressed(Messages.getGMessages()[11] + currentPlayer.getName() + Messages.getGMessages()[12], Messages.getGMessages()[7]);
 
+		//throw dice
+		dice.setAllValuesRandom();
 		currentPlayer.setDiceSum(dice.getSum());
 		GUI.setDice(dice.getValues()[0], dice.getValues()[1]);
+
 		movePiece(currentPlayer);
-		//		System.out.println(Messages.getSquareMessages()[dice.getDiceSum()-2]);
 
 		currentField.landOnField(currentPlayer);
-		GUI.setBalance(currentPlayer.getName(), currentPlayer.getBalance());
-		
-		if (currentField instanceof Ownable) {
-			Ownable field = (Ownable) currentField;
-			if (((Ownable) currentField).getOwner() != null){
-				GUI.setBalance(field.getOwner().getName(), field.getOwner().getBalance());
-			}
-		}
-		
-		if (currentPlayer.getBalance() == 0){
-			removePlayer(currentPlayer);
-		}
 
-		//GUI.showMessage(Messages.getSMessage(dice.getDiceSum()-2) + "\n\n" + Messages.getBalance(currentPlayer));
-
+		//define next player
 		Player nextPlayer;
-
 		if (currentPlayer == players[players.length-1]){
 			nextPlayer = players[0];
 		}
 		else{
+			//find currentPlayer's index in players
 			int arrayIndex = 0;
-			
 			for (int i=0;i<players.length;i++){
 				if (currentPlayer == players[i]){
 					arrayIndex=i;
 				}
 			}
-			
-			if (players.length != 1){
-				nextPlayer = players[arrayIndex+1];
-			}
-			else{
-				nextPlayer = currentPlayer;
-			}
+			nextPlayer = players[arrayIndex+1];
+		}
+
+		//remove player if balance = 0
+		if (currentPlayer.getBalance() == 0){
+			removePlayer(currentPlayer);
+		}
+		
+		if (players.length == 1){
+			nextPlayer = players[0];
 		}
 
 		return nextPlayer;
@@ -146,7 +118,6 @@ public class Game {
 	}
 
 	private void movePiece(Player currentPlayer) {
-		//Set Car/Piece
 		if (currentPlayer.getPiece().getPosition() != 0){
 			/*
 			 * If there has already been placed a car, we remove it before placing a new one
@@ -164,12 +135,12 @@ public class Game {
 		if (position == 0){
 			position = board.getFields().length;
 		}
-		
+
 		//We set the car and piece position to the new values
 		currentPlayer.getPiece().setPosition(position);
 		GUI.setCar(position, currentPlayer.getName());
 		currentField = board.getFields()[position-1];
-		GUI.displayChanceCard(Messages.getFNames()[dice.getSum()-2] + "<br><br>" + Messages.getFMessages()[dice.getSum()-2]);
+		GUI.displayChanceCard(Messages.getFNames()[position-1] + "<br><br>" + Messages.getFMessages()[position-1]);
 
 	}
 
