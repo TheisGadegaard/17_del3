@@ -67,7 +67,10 @@ public class Messages {
 			"Slå med terningerne",	//7
 			"Hvor mange spillere skal deltage i spillet?",	//8
 			"Du er landet på en anden spillers felt. Du skal betale leje.",	//9
-			"Spiller "	//10
+			"Spiller ",	//10
+			"Det er spiller ", // 11
+			"'s tur.", // 12
+			
 	};
 
 	public static String[] getFMessages(){

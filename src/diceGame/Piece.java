@@ -15,11 +15,21 @@ public class Piece {
 	// Constructor - In order to create the piece, you will need to give the vehicle a color using java.awt.Color;
 	public Piece(Color color) {
 		this.color = color;
+		position = 0;
 	}
-
+	
+	public Color getColor() {
+		return this.color;
+	}
+	
 	// Move the piece to a position using an integer
 	public void setPosition(int position) {
 		this.position = position;
 	}
+	
+	public int getPosition() {
+		return this.position;
+	}
+
 }
 

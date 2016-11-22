@@ -4,17 +4,24 @@ public class Player {
 
 	private int id;
 	private int balance;
+	private String name;
 	private int diceSum;
 	private Piece piece;
 	private Ownable[] ownedFields;
 
-	public Player(int id, int balance, Piece piece){
-
+	public Player(String name,int id, int balance, Piece piece){
+		this.name = name;
 		this.id = id;
 		this.balance = balance;
 		this.piece = piece;
 		ownedFields = new Ownable[17];
 		diceSum = 0;
+
+	}
+
+	public String getName(){
+
+		return name;
 
 	}
 

@@ -23,11 +23,11 @@ public class Game {
 		int startBalance = 30000;
 		players = new Player[playerAmount];
 		for (int i = 0; i < players.length; i++){
-			players[i] = new Player(i+1,startBalance, new Piece(Color.white));
+			players[i] = new Player(Messages.getGMessages()[10]+(i+1),i+1,startBalance, new Piece(Color.white));
 			Car car = new Car.Builder()
-						.primaryColor(Color.white)
-						.build();
-			GUI.addPlayer(Messages.getGMessages()[10] + (i + 1), startBalance, car);
+					.primaryColor(players[i].getPiece().getColor())
+					.build();
+			GUI.addPlayer(players[i].getName(), players[i].getBalance(), car);
 		}
 	}
 
@@ -42,13 +42,13 @@ public class Game {
 			//			System.out.println(Messages.printNextPlayer(currentPlayer));
 			nextPlayer = playTurn(currentPlayer);
 
-			String scoreBoard = "Spiller\tBalance";
-			for (int i = 0; i < players.length; i++){
-				scoreBoard += "\n" + players[i].getID() + "\t" + players[i].getBalance();
-			}
+			//			String scoreBoard = "Spiller\tBalance";
+			//			for (int i = 0; i < players.length; i++){
+			//				scoreBoard += "\n" + players[i].getID() + "\t" + players[i].getBalance();
+			//			}
+			//
+			//			GUI.getUserButtonPressed(scoreBoard, Messages.getGMessages()[7]);
 
-			GUI.getUserButtonPressed(scoreBoard, Messages.getGMessages()[7]);
-			
 			//Find out how many players are left in game
 			int playersLeft = 0;
 			for (Player i : players){
@@ -56,7 +56,7 @@ public class Game {
 					playersLeft++;
 				}
 			}
-			
+
 			if (playersLeft == 1){
 				winnerFound = true;
 			}
@@ -70,14 +70,25 @@ public class Game {
 	}
 
 	private Player playTurn(Player currentPlayer){
+		GUI.getUserButtonPressed(Messages.getGMessages()[11] + currentPlayer.getID() + Messages.getGMessages()[12], Messages.getGMessages()[7]);
 		Field currentField;
 		dice.setAllValuesRandom();
-		System.out.println("\nSpiller " + currentPlayer.getID() + " slog: " + dice.getSum());
 
 		currentPlayer.setDiceSum(dice.getSum());
 		GUI.setDice(dice.getValues()[0], dice.getValues()[1]);
 		//Set Car/Piece
-		currentField = board.getFields()[dice.getSum()-2];
+		if (currentPlayer.getPiece().getPosition() != 0){
+			GUI.removeCar(currentPlayer.getPiece().getPosition(),currentPlayer.getName());
+		}
+		
+		int position = (currentPlayer.getPiece().getPosition() + dice.getSum()) % board.getFields().length;
+		if (position == 0){
+			position = board.getFields().length;
+		}
+		
+		currentPlayer.getPiece().setPosition(position);
+		GUI.setCar(position, currentPlayer.getName());
+		currentField = board.getFields()[position-1];
 		GUI.displayChanceCard(Messages.getFNames()[dice.getSum()-2] + "<br><br>" + Messages.getFMessages()[dice.getSum()-2]);
 
 		//		System.out.println(Messages.getSquareMessages()[dice.getDiceSum()-2]);
@@ -87,7 +98,7 @@ public class Game {
 		if (currentPlayer.getBalance() == 0){
 			removePlayer(currentPlayer);
 		}
-		
+
 		//GUI.showMessage(Messages.getSMessage(dice.getDiceSum()-2) + "\n\n" + Messages.getBalance(currentPlayer));
 
 		Player nextPlayer;
@@ -101,13 +112,13 @@ public class Game {
 
 		return nextPlayer;
 	}
-	
+
 	private void removePlayer(Player player){
 		Player[] temp;
 		temp = players;
 
 		players = new Player[temp.length-1];
-		
+
 		int playerCount = 0;
 		for (int i = 0; i<temp.length;i++){
 			if (temp[i] != player){
@@ -116,5 +127,5 @@ public class Game {
 			}
 		}
 	}
-	
+
 }
