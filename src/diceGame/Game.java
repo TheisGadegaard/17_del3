@@ -77,12 +77,16 @@ public class Game {
 		currentPlayer.setDiceSum(dice.getSum());
 		GUI.setDice(dice.getValues()[0], dice.getValues()[1]);
 		movePiece(currentPlayer);
-		GUI.displayChanceCard(Messages.getFNames()[dice.getSum()-2] + "<br><br>" + Messages.getFMessages()[dice.getSum()-2]);
-
 		//		System.out.println(Messages.getSquareMessages()[dice.getDiceSum()-2]);
 
 		currentField.landOnField(currentPlayer);
-
+		GUI.setBalance(currentPlayer.getName(), currentPlayer.getBalance());
+		
+		if (currentField instanceof Ownable) {
+			Ownable field = (Ownable) currentField;
+			GUI.setBalance(field.getOwner().getName(), field.getOwner().getBalance());			
+		}
+		
 		if (currentPlayer.getBalance() == 0){
 			removePlayer(currentPlayer);
 		}
