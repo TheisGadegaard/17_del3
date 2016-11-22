@@ -21,7 +21,7 @@ public class Game {
 	}
 
 	public void resetGame(int playerAmount){
-		int startBalance = 30000;
+		final int START_BALANCE = 30000;
 		players = new Player[playerAmount];
 		Color color = null;
 		for (int i = 0; i < players.length; i++){
@@ -34,7 +34,7 @@ public class Game {
 			case 5: color = Color.black; break;
 			default: System.exit(1);
 			}
-			players[i] = new Player(Messages.getGMessages()[10]+(i+1),i+1,startBalance, new Piece(color));
+			players[i] = new Player(Messages.getGMessages()[10]+(i+1),i+1,START_BALANCE, new Piece(color));
 			Car car = new Car.Builder()
 					.primaryColor(players[i].getPiece().getColor())
 					.build();
@@ -94,7 +94,9 @@ public class Game {
 		
 		if (currentField instanceof Ownable) {
 			Ownable field = (Ownable) currentField;
-			GUI.setBalance(field.getOwner().getName(), field.getOwner().getBalance());			
+			if (((Ownable) currentField).getOwner() != null){
+				GUI.setBalance(field.getOwner().getName(), field.getOwner().getBalance());
+			}
 		}
 		
 		if (currentPlayer.getBalance() == 0){
@@ -105,11 +107,19 @@ public class Game {
 
 		Player nextPlayer;
 
-		if (currentPlayer.getID() == players.length){
+		if (currentPlayer == players[players.length-1]){
 			nextPlayer = players[0];
 		}
 		else{
-			nextPlayer = players[currentPlayer.getID()];
+			int arrayIndex = 0;
+			
+			for (int i=0;i<players.length;i++){
+				if (currentPlayer == players[i]){
+					arrayIndex=i;
+				}
+			}
+			
+			nextPlayer = players[arrayIndex+1];
 		}
 
 		return nextPlayer;
