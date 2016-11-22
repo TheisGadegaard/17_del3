@@ -65,7 +65,7 @@ public class Game {
 		}
 
 		//		GUI.showMessage(Messages.getPlayers(players) + "\n\n" + Messages.printWinners(winners));
-		//		System.out.println(Messages.printWinners(winners));
+		//		System.out.println(Messages.printWinners(winners)); 
 
 	}
 

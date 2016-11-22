@@ -52,7 +52,7 @@ public class Messages {
 			"Leje:", 				//1
 			"Modtag:",				//2
 			"Betal:",				//3
-			"eller",				//4
+			"eller",				//4 
 			"af alle ejendele",		//5
 	};
 	

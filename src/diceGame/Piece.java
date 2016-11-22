@@ -15,7 +15,7 @@ public class Piece {
 	// Constructor - In order to create the piece, you will need to give the vehicle a color using java.awt.Color;
 	public Piece(Color color) {
 		this.color = color;
-		position = 0;
+		position = 0; 
 	}
 	
 	public Color getColor() {
