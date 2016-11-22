@@ -23,15 +23,25 @@ public class Game {
 	public void resetGame(int playerAmount){
 		int startBalance = 30000;
 		players = new Player[playerAmount];
+		Color color = null;
 		for (int i = 0; i < players.length; i++){
-			players[i] = new Player(Messages.getGMessages()[10]+(i+1),i+1,startBalance, new Piece(Color.white));
+			switch (i){
+			case 0: color = Color.red; break;
+			case 1: color = Color.green; break;
+			case 2: color = Color.yellow; break;
+			case 3: color = Color.blue; break;
+			case 4: color = Color.white; break;
+			case 5: color = Color.black; break;
+			default: System.exit(1);
+			}
+			players[i] = new Player(Messages.getGMessages()[10]+(i+1),i+1,startBalance, new Piece(color));
 			Car car = new Car.Builder()
 					.primaryColor(players[i].getPiece().getColor())
 					.build();
 			GUI.addPlayer(players[i].getName(), players[i].getBalance(), car);
 		}
 	}
-
+	
 	public void playGame(){
 		boolean winnerFound = false;
 		Player currentPlayer, nextPlayer;
