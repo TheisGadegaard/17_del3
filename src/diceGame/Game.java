@@ -2,6 +2,7 @@ package diceGame;
 
 import java.awt.Color;
 
+import desktop_codebehind.Car;
 import desktop_resources.GUI;
 
 public class Game {
@@ -19,9 +20,14 @@ public class Game {
 	}
 
 	public void resetGame(int playerAmount){
+		int startBalance = 30000;
 		players = new Player[playerAmount];
 		for (int i = 0; i < players.length; i++){
-			players[i] = new Player(i+1,30000, new Piece(Color.white));
+			players[i] = new Player(i+1,startBalance, new Piece(Color.white));
+			Car car = new Car.Builder()
+						.primaryColor(Color.white)
+						.build();
+			GUI.addPlayer(Messages.getGMessages()[10] + (i + 1), startBalance, car);
 		}
 	}
 
