@@ -41,6 +41,7 @@ public abstract class Ownable extends Field {
 				owner = player;
 				owner.setOwnedField(this);
 				player.setBalance(player.getBalance()-price);
+				GUI.setOwner(player.getPiece().getPosition(), player.getName());
 			}
 		}
 		else if (owner == player){
