@@ -2,50 +2,50 @@ package diceGame;
 
 public class Messages {
 	private static String[] fieldMessages = {
-			"Walled city" 			//Field 1
-			,"Goldmine"				//Field 2
-			,"Tribe Encampment"		//Field 3
-			,"Second Sail"			//Field 4
-			,"Crater"				//Field 5
-			,"Mountain"				//Field 6
-			,"Huts in the mountain" //Field 7
-			,"Cold Desert"			//Field 8
-			,"Sea Grover"			//Field 9
-			,"Black cave"			//Field 10
-			,"The Werewall"			//Field 11
-			,"Monastery"			//Field 12
-			,"Caravan"				//Field 13
-			,"The Buccaneers"		//Field 14
-			,"The pit"				//Field 15
-			,"Mountain village"		//Field 16
-			,"South Citadel"		//Field 17
-			,"Palace gates"			//Field 18
-			,"Privateer armada"		//Field 19
-			,"Tower"				//Field 20
-			,"Castle"				//Field 21
+/*Field 1*/			"Du ankommer til en fæstning med meget høje mure. Indbyggerne kan ikke komme ud. De betaler dig 5000 som tak, da du foreslår dem at lave en port i muren."
+/*Field 2*/			,"Du ankommer til en Guldmine! En masse sure dværge kommer ud og stjæler 2000 fra dig."																		
+/*Field 3*/			,"Du ankommer til en Lejr hvor alle beboerne stammer."																										
+/*Field 4*/			,"Du ankommer til en havn hvor det berømte skib ”Sejl nr. 2” ligger til kaj."																				
+/*Field 5*/			,"Du ankommer til et krater."																																
+/*Field 6*/			,"Du ankommer til er bjerg."																																
+/*Field 7*/			,"Du ankommer til nogle bjerghytter der er beboet af venlige nisser." 																						
+/*Field 8*/			,"Du ankommer til en gold og forfrossen ørken."																												
+/*Field 9*/			,"Du ankommer til en havn hvor det gigantiske lyserøde skib ”Hav Crover” ligger til kaj."			
+/*Field 10*/		,"Du ankommer til en meget uhyggelig mørk grotte der er til salg."			
+/*Field 11*/		,"Du ankommer til den berygtede varulvemur."			
+/*Field 12*/		,"Du ankommer til et kloster. Her tilbeder munkene pengeguden Yll’an. De giver dig 500."			
+/*Field 13*/		,"Du ankommer til en campingvogn. Ud kommer der en hillbilly med et haglgevær. Betal ham 4000 eller 10% af alt hvad du ejer."				
+/*Field 14*/		,"Du møder en venlig pirat, der giver dig en enestående mulighed for at købe hans sørøverskib."		
+/*Field 15*/		,"Du ankommer til et stort hul i jorden."				
+/*Field 16*/		,"Du ankommer til en bjergby."		
+/*Field 17*/		,"Du ankommer til Den sydlige hovedstad. Borgmesteren er virkelig fuld, og han tilbyder dig at købe hele byen."		
+/*Field 18*/		,"Du ankommer til et meget stort og flot palads."			
+/*Field 19*/		,"Du møder kaptajnen for en flåde af lejesoldater."		
+/*Field 20*/		,"Du møder en gal troldmand i et højt tårn. Han tryller sine egne bukser om til guld, og tilbyder dig at købe tårnet."				
+/*Field 21*/		,"Du ankommer til kongerigets slot."				
 	};
 	private static String[] fieldNames = {
-			"Walled city" 			//Field 1
-			,"Goldmine"				//Field 2
-			,"Tribe Encampment"		//Field 3
-			,"Second Sail"			//Field 4
-			,"Crater"				//Field 5
-			,"Mountain"				//Field 6
-			,"Huts in the mountain" //Field 7
-			,"Cold Desert"			//Field 8
-			,"Sea Grover"			//Field 9
-			,"Black cave"			//Field 10
-			,"The Werewall"			//Field 11
-			,"Monastery"			//Field 12
-			,"Caravan"				//Field 13
-			,"The Buccaneers"		//Field 14
-			,"The pit"				//Field 15
-			,"Mountain village"		//Field 16
-			,"South Citadel"		//Field 17
-			,"Palace gates"			//Field 18
-			,"Privateer armada"		//Field 19
-			,"Tower"				//Field 20
-			,"Castle"				//Field 21
+			"Fæstning" 					//Field 1
+			,"Guldmine"					//Field 2
+			,"Stamme Lejr"				//Field 3
+			,"Sejl nr. 2"				//Field 4
+			,"Krater"					//Field 5
+			,"Bjerg"					//Field 6
+			,"Bjerghytter"			    //Field 7
+			,"Kold Ørken"				//Field 8
+			,"Hav Grover"				//Field 9
+			,"Grotte"					//Field 10
+			,"Varulvemuren"				//Field 11
+			,"Kloster"					//Field 12
+			,"Campingvogn"				//Field 13
+			,"Sørøverskibet"			//Field 14
+			,"Hullet"					//Field 15
+			,"Bjergby"					//Field 16
+			,"Den sydlige hovedstad"	//Field 17
+			,"Palads"					//Field 18
+			,"Lejesoldater"				//Field 19
+			,"Tårn"						//Field 20
+			,"Slot"						//Field 21
 	};
 	private static String[] boardMessages = {
 			"Pris:",				//0	
