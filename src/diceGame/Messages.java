@@ -48,16 +48,25 @@ public class Messages {
 			,"Castle"				//Field 21
 	};
 	private static String[] boardMessages = {
-			"Price:",				//0	
-			"Rent:", 				//1
-			"Recieve:",				//2
-			"Pay:",					//3
-			"or",					//4
-			"of all assets"			//5
+			"Pris:",				//0	
+			"Leje:", 				//1
+			"Modtag:",				//2
+			"Betal:",				//3
+			"eller",				//4
+			"af alle ejendele",		//5
 	};
 	
 	private static String[] generalMessages = {
-
+			"Dette felt er ikke ejet af nogen spiller. Vil du købe det for ", 	//0
+			"Ja",					//1
+			"Nej",					//2
+			"Du har nu to muligheder",	//3
+			"Betal ",				//4
+			"% af alle ejendele ",	//5
+			"Vil du starte et nyt spil?",	//6
+			"Slå med terningerne",	//7
+			"Hvor mange spillere skal deltage i spillet?",	//8
+			"Du er landet på en anden spillers felt. Du skal betale leje."	//9
 	};
 
 	public static String[] getFMessages(){

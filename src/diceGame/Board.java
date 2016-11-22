@@ -91,9 +91,10 @@ public class Board {
 			
 		}
 		else if(fields[fn] instanceof Fleet){
-			//Fleet is blue
+			//Fleet is blue 
 			red -= 100;
 			green -= 100;
+			blue += 40;
 		}
 		else if(fields[fn] instanceof LaborCamp){
 			//LaborCamp is grey

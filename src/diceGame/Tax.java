@@ -4,6 +4,8 @@
  */
 package diceGame;
 
+import desktop_resources.GUI;
+
 public class Tax extends Field {
 	private int taxAmount;
 	private int taxRate; //taxRate = -1 means no taxRate.
@@ -23,9 +25,17 @@ public class Tax extends Field {
 
 	public void landOnField(Player player){
 		if (taxRate >= 0){
-			//GUI choice between amount or rate
-			//player.setBalance(player.getBalance() - taxAmount);
-			//player.setBalance(player.getBalance() - (taxRate * getAllAssets(player)));
+			if (GUI.getUserButtonPressed(
+					Messages.getGMessages()[3] //You have two options
+					,Messages.getGMessages()[4] + taxAmount //Pay taxAmount
+					,Messages.getGMessages()[4] + taxRate + Messages.getGMessages()[5] //Pay taxRate
+					) == Messages.getGMessages()[4] + taxAmount)
+			{//user chooses taxAmount
+				player.setBalance(player.getBalance() - taxAmount);
+			}
+			else{//user chooses taxRate
+				player.setBalance(player.getBalance() - ((taxRate/100) * getAllAssets(player)));
+			}
 		}
 		else{
 			player.setBalance(player.getBalance() - taxAmount);
