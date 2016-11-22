@@ -117,18 +117,31 @@ public class Game {
 	}
 
 	private void movePiece(Player currentPlayer) {
+		//Set Car/Piece
 		if (currentPlayer.getPiece().getPosition() != 0){
+			/*
+			 * If there has already been placed a car, we remove it before placing a new one
+			 * We avoid bugs in the first turn by having the position set to 0
+			 * Every field is then a value of 1-21.
+			 */
 			GUI.removeCar(currentPlayer.getPiece().getPosition(),currentPlayer.getName());
 		}
-
+		/*
+		 * Position is equal to the current position + the sum of the dice throw
+		 * We use modulus to calculate whether the player would end up outside the board
+		 */
 		int position = (currentPlayer.getPiece().getPosition() + dice.getSum()) % board.getFields().length;
+		//Since we use mod 21, we need to have a special case for field 21, or else we get position == 0
 		if (position == 0){
 			position = board.getFields().length;
 		}
-
+		
+		//We set the car and piece position to the new values
 		currentPlayer.getPiece().setPosition(position);
 		GUI.setCar(position, currentPlayer.getName());
 		currentField = board.getFields()[position-1];
+		GUI.displayChanceCard(Messages.getFNames()[dice.getSum()-2] + "<br><br>" + Messages.getFMessages()[dice.getSum()-2]);
+
 	}
 
 }
