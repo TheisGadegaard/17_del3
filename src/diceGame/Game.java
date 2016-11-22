@@ -11,6 +11,7 @@ public class Game {
 	private DiceCup dice; //An instance of the DiceCup class
 	private final int diceAmount; //The amount of dice used by the game
 	private final int diceSides; //The number of sides the dice can have
+	private Field currentField;
 
 	public Game(){
 		diceAmount = 2;		diceSides = 6;
@@ -71,24 +72,11 @@ public class Game {
 
 	private Player playTurn(Player currentPlayer){
 		GUI.getUserButtonPressed(Messages.getGMessages()[11] + currentPlayer.getID() + Messages.getGMessages()[12], Messages.getGMessages()[7]);
-		Field currentField;
 		dice.setAllValuesRandom();
 
 		currentPlayer.setDiceSum(dice.getSum());
 		GUI.setDice(dice.getValues()[0], dice.getValues()[1]);
-		//Set Car/Piece
-		if (currentPlayer.getPiece().getPosition() != 0){
-			GUI.removeCar(currentPlayer.getPiece().getPosition(),currentPlayer.getName());
-		}
-		
-		int position = (currentPlayer.getPiece().getPosition() + dice.getSum()) % board.getFields().length;
-		if (position == 0){
-			position = board.getFields().length;
-		}
-		
-		currentPlayer.getPiece().setPosition(position);
-		GUI.setCar(position, currentPlayer.getName());
-		currentField = board.getFields()[position-1];
+		movePiece(currentPlayer);
 		GUI.displayChanceCard(Messages.getFNames()[dice.getSum()-2] + "<br><br>" + Messages.getFMessages()[dice.getSum()-2]);
 
 		//		System.out.println(Messages.getSquareMessages()[dice.getDiceSum()-2]);
@@ -126,6 +114,21 @@ public class Game {
 				playerCount++;
 			}
 		}
+	}
+
+	private void movePiece(Player currentPlayer) {
+		if (currentPlayer.getPiece().getPosition() != 0){
+			GUI.removeCar(currentPlayer.getPiece().getPosition(),currentPlayer.getName());
+		}
+
+		int position = (currentPlayer.getPiece().getPosition() + dice.getSum()) % board.getFields().length;
+		if (position == 0){
+			position = board.getFields().length;
+		}
+
+		currentPlayer.getPiece().setPosition(position);
+		GUI.setCar(position, currentPlayer.getName());
+		currentField = board.getFields()[position-1];
 	}
 
 }
