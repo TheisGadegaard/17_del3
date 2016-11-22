@@ -118,6 +118,7 @@ public class Game {
 				playerCount++;
 			}
 		}
+		GUI.removeAllCars(player.getName());
 	}
 
 	private void movePiece(Player currentPlayer) {

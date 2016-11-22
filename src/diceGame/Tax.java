@@ -27,14 +27,14 @@ public class Tax extends Field {
 		if (taxRate >= 0){
 			if (GUI.getUserButtonPressed(
 					Messages.getGMessages()[3] //You have two options
-					,Messages.getGMessages()[4] + taxAmount //Pay taxAmount
-					,Messages.getGMessages()[4] + taxRate + Messages.getGMessages()[5] //Pay taxRate
+							,Messages.getGMessages()[4] + taxAmount //Pay taxAmount
+							,Messages.getGMessages()[4] + taxRate + Messages.getGMessages()[5] //Pay taxRate
 					) == Messages.getGMessages()[4] + taxAmount)
 			{//user chooses taxAmount
 				player.setBalance(player.getBalance() - taxAmount);
 			}
 			else{//user chooses taxRate
-				player.setBalance(player.getBalance() - ((taxRate/100) * getAllAssets(player)));
+				player.setBalance(player.getBalance() - (int)((taxRate/100.0) * getAllAssets(player)));
 			}
 		}
 		else{
@@ -47,7 +47,9 @@ public class Tax extends Field {
 		int ownedAssets = player.getBalance();
 
 		for (int i = 0; i < fields.length; i++){
-			ownedAssets += fields[i].getPrice();
+			if (fields[i] != null){
+				ownedAssets += fields[i].getPrice();
+			}
 		}
 
 		return ownedAssets;

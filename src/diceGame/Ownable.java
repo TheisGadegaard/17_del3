@@ -39,6 +39,7 @@ public abstract class Ownable extends Field {
 					) == Messages.getGMessages()[1])
 			{//user chooses yes
 				owner = player;
+				owner.setOwnedField(this);
 				player.setBalance(player.getBalance()-price);
 			}
 		}
