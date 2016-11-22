@@ -32,7 +32,7 @@ public class DiceCupTest {
 		}
 
 		assertEquals(FailOnce, false);
-
+ 
 	}
 
 }
