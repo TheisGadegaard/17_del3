@@ -21,7 +21,7 @@ public class Game {
 	}
 
 	public void resetGame(int playerAmount){
-		final int START_BALANCE = 30000;
+		final int START_BALANCE = 1000;
 		players = new Player[playerAmount];
 		Color color = null;
 		for (int i = 0; i < players.length; i++){
@@ -74,9 +74,8 @@ public class Game {
 
 			currentPlayer = nextPlayer;
 		}
-
-		//		GUI.showMessage(Messages.getPlayers(players) + "\n\n" + Messages.printWinners(winners));
-		//		System.out.println(Messages.printWinners(winners)); 
+		
+				GUI.showMessage("Tillykke " + currentPlayer.getName() + "!");
 
 	}
 
@@ -119,7 +118,12 @@ public class Game {
 				}
 			}
 			
-			nextPlayer = players[arrayIndex+1];
+			if (players.length != 1){
+				nextPlayer = players[arrayIndex+1];
+			}
+			else{
+				nextPlayer = currentPlayer;
+			}
 		}
 
 		return nextPlayer;
