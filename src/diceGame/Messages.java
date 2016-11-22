@@ -70,7 +70,7 @@ public class Messages {
 			"Spiller ",	//10
 			"Det er spiller ", // 11
 			"'s tur.", // 12
-			
+			"Du er landet på en arbejdslejr og skal slå med terningerne, for at bestemme hvor meget du skal betale i leje." // 13
 	};
 
 	public static String[] getFMessages(){
