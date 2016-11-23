@@ -16,6 +16,7 @@ public class GameTest extends Game {
 	*/
 	
 	private GameTest(){
-		
+		super();
+		super.resetGame(2, 5000);
 	}
 }
