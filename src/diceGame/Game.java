@@ -21,7 +21,7 @@ public class Game {
 	}
 
 	public void resetGame(int playerAmount, int balance){
-		final int START_BALANCE = balance;
+		int startBalance = balance; //This cannot be a final as we need to be able to reset the game from the GUI
 		players = new Player[playerAmount];
 		Color color = null;
 		for (int i = 0; i < players.length; i++){
@@ -34,7 +34,7 @@ public class Game {
 			case 5: color = Color.black; break;
 			default: System.exit(1);
 			}
-			players[i] = new Player(Messages.getGMessages()[10]+(i+1),i+1,START_BALANCE, new Piece(color));
+			players[i] = new Player(Messages.getGMessages()[10]+(i+1),i+1,startBalance, new Piece(color));
 			Car car = new Car.Builder()
 					.primaryColor(players[i].getPiece().getColor())
 					.build();
