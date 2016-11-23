@@ -6,12 +6,12 @@ import desktop_codebehind.Car;
 import desktop_resources.GUI;
 
 public class Game {
-	private Board board; //An instance of the Board class
-	private Player[] players; //An array of Players
-	private DiceCup dice; //An instance of the DiceCup class
-	private final int diceAmount; //The amount of dice used by the game
-	private final int diceSides; //The number of sides the dice can have
-	private Field currentField;
+	protected Board board; //An instance of the Board class
+	protected Player[] players; //An array of Players
+	protected DiceCup dice; //An instance of the DiceCup class
+	protected final int diceAmount; //The amount of dice used by the game
+	protected final int diceSides; //The number of sides the dice can have
+	protected Field currentField;
 
 	public Game(){
 		diceAmount = 2;		diceSides = 6;
