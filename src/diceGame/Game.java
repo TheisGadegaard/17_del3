@@ -101,7 +101,7 @@ public class Game {
 		return nextPlayer;
 	}
 
-	private void removePlayer(Player player){
+	protected void removePlayer(Player player){
 		Player[] temp;
 		temp = players;
 
@@ -117,7 +117,7 @@ public class Game {
 		GUI.removeAllCars(player.getName());
 	}
 
-	private void movePiece(Player currentPlayer) {
+	protected void movePiece(Player currentPlayer) {
 		if (currentPlayer.getPiece().getPosition() != 0){
 			/*
 			 * If there has already been placed a car, we remove it before placing a new one
