@@ -19,7 +19,7 @@ public class CreateGame {
 			){
 			playerAmount = Integer.parseInt(GUI.getUserSelection(Messages.getGMessages()[8], "2","3","4","5","6"));
 			//Maybe possibility to name players
-			game.resetGame(playerAmount);
+			game.resetGame(playerAmount, 5000); //Reset the game with new amount of players and set start balance
 			game.playGame();
 		}
 		GUI.close();

@@ -20,8 +20,8 @@ public class Game {
 		board.showFieldsOnGUI();
 	}
 
-	public void resetGame(int playerAmount){
-		final int START_BALANCE = 5000;
+	public void resetGame(int playerAmount, int balance){
+		final int START_BALANCE = balance;
 		players = new Player[playerAmount];
 		Color color = null;
 		for (int i = 0; i < players.length; i++){
