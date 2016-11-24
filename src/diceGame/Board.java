@@ -39,11 +39,13 @@ public class Board {
 		fields[19] = new Territory(6000, 3200); 		//Tower
 		fields[20] = new Territory(8000, 4000); 		//Castle
 		
+		/*
 		//Use messages class to set the names of the field class
 		//String[] names = Messages.getFNames(); 		//We get the names
 		for(int i = 0; i < fields.length; i++){
 			fields[i].setName(Messages.getFNames()[i]); 			//We set the names
 		}
+		*/
 		
 	}
 	

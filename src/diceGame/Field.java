@@ -6,7 +6,7 @@
 package diceGame;
 
 public abstract class Field {
-	private String name;
+	//private String name;
 	
 	/*
 	 * Field is an abstract class. 
@@ -17,6 +17,7 @@ public abstract class Field {
 	 */
 	public abstract void landOnField(Player player);
 
+	/*
 	public void setName(String text){
 		name = text;
 	}
@@ -24,4 +25,5 @@ public abstract class Field {
 	public String getName(){
 		return name;
 	}
+	*/
 }
