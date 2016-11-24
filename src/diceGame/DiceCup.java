@@ -1,8 +1,8 @@
 package diceGame;
 
 public class DiceCup {
-	private int[] values;
-	private int sides;
+	protected int[] values;
+	protected int sides;
 	
 //Constructor to set amount of dice-sides and the amount of dices
 //furthermore uses the setAllValuesRandom method which simulates a roll
@@ -16,14 +16,6 @@ public class DiceCup {
 		return values;
 	}
 	
-	public void setSingleValue(int place, int newValue){
-		values[place] = newValue;
-	}
-	
-	public void setAllValues(int[] values){
-		this.values = values;
-	}
-
 	public int getSum(){
 		int sum = 0;
 		for (int i = 0; i<values.length;i++){
