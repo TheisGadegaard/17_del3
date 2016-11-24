@@ -39,6 +39,14 @@ public class Game {
 					.primaryColor(players[i].getPiece().getColor())
 					.build();
 			GUI.addPlayer(players[i].getName(), players[i].getBalance(), car);
+			GUI.setBalance(players[i].getName(), players[i].getBalance());
+			GUI.removeAllCars(players[i].getName());
+		}
+		for (int i = 0; i<board.getFields().length; i++){
+			GUI.removeOwner(i+1);
+			if (board.getFields()[i] instanceof Ownable && ((Ownable) board.getFields()[i]).getOwner() != null){
+				((Ownable) board.getFields()[i]).setOwner(null);
+			}
 		}
 	}
 
@@ -61,20 +69,39 @@ public class Game {
 
 	}
 
-	private Player playTurn(Player currentPlayer){
+	protected Player playTurn(Player currentPlayer){
 		GUI.getUserButtonPressed(Messages.getGMessages()[11] + currentPlayer.getName() + Messages.getGMessages()[12], Messages.getGMessages()[7]);
 
-		//throw dice
-		dice.setAllValuesRandom();
-		currentPlayer.setDiceSum(dice.getSum());
-		GUI.setDice(dice.getValues()[0], dice.getValues()[1]);
+		throwDice(currentPlayer);		
 
 		movePiece(currentPlayer);
 
 		currentField.landOnField(currentPlayer);
 
-		//define next player
+		Player nextPlayer = defineNextPlayer(currentPlayer);
+		return nextPlayer;
+	}
+
+	protected void removePlayer(Player player){
+		Player[] temp;
+		temp = players;
+
+		players = new Player[temp.length-1];
+
+		int playerCount = 0;
+		for (int i = 0; i<temp.length;i++){
+			if (temp[i] != player){
+				players[playerCount] = temp[i];
+				playerCount++;
+			}
+		}
+		
+		GUI.removeAllCars(player.getName());
+	}
+
+	protected Player defineNextPlayer(Player currentPlayer){
 		Player nextPlayer;
+
 		if (currentPlayer == players[players.length-1]){
 			nextPlayer = players[0];
 		}
@@ -93,7 +120,7 @@ public class Game {
 		if (currentPlayer.getBalance() == 0){
 			removePlayer(currentPlayer);
 		}
-		
+
 		if (players.length == 1){
 			nextPlayer = players[0];
 		}
@@ -101,20 +128,10 @@ public class Game {
 		return nextPlayer;
 	}
 
-	protected void removePlayer(Player player){
-		Player[] temp;
-		temp = players;
-
-		players = new Player[temp.length-1];
-
-		int playerCount = 0;
-		for (int i = 0; i<temp.length;i++){
-			if (temp[i] != player){
-				players[playerCount] = temp[i];
-				playerCount++;
-			}
-		}
-		GUI.removeAllCars(player.getName());
+	protected void throwDice(Player currentPlayer){
+		dice.setAllValuesRandom();
+		currentPlayer.setDiceSum(dice.getSum());
+		GUI.setDice(dice.getValues()[0], dice.getValues()[1]);
 	}
 
 	protected void movePiece(Player currentPlayer) {
