@@ -10,6 +10,6 @@ public class GameTestMode extends Game {
 	}
 	
 	public int getPlayerArrayLength(){
-		return 0;
+		return super.players.length;
 	}
 }
