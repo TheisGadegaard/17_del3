@@ -63,7 +63,7 @@ public class DiceCupTest {
 		
 		for (int n = 0; n < 6; n++){
 			
-			if (Throw[n] < 4500){
+			if (Throw[n] < 4700){
 				
 				FailRandom = true;
 				
