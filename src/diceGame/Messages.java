@@ -7,7 +7,7 @@ public class Messages {
 /*Field 3*/			,"Du ankommer til en Lejr hvor alle beboerne stammer."																										
 /*Field 4*/			,"Du ankommer til en havn hvor det berømte skib 'Sejl nr. 2' ligger til kaj."																				
 /*Field 5*/			,"Du ankommer til et krater."																																
-/*Field 6*/			,"Du ankommer til er bjerg."																																
+/*Field 6*/			,"Du ankommer til et bjerg."																																
 /*Field 7*/			,"Du ankommer til nogle bjerghytter der er beboet af venlige nisser." 																						
 /*Field 8*/			,"Du ankommer til en gold og forfrossen ørken."																												
 /*Field 9*/			,"Du ankommer til en havn hvor det gigantiske lyserøde skib 'Hav Crover' ligger til kaj."			
