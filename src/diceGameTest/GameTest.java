@@ -8,7 +8,9 @@ import diceGame.Ownable;
 import diceGame.Player;
 
 public class GameTest {
-
+	GameTestMode game = new GameTestMode();
+	DiceCupTestMode dice = new DiceCupTestMode(2,6);
+	
 	/**
 	 * UC01: Land on Fleet
 	 * Player lands on field 4
@@ -21,9 +23,7 @@ public class GameTest {
 		int rent = 500;
 		
 	//First case we let the player buy the fleet
-		GameTestMode game = new GameTestMode();
-		
-		DiceCupTestMode dice = new DiceCupTestMode(2,6);
+		GUI.showMessage("TC01");
 		dice.setValues(diceValues);
 		Player nextPlayer = game.playTurn(game.getPlayers()[0], dice);
 
@@ -39,7 +39,7 @@ public class GameTest {
 		assertEquals(game.getPlayers()[0].getBalance(), startBalance-price+rent);
 		assertEquals(game.getPlayers()[1].getBalance(), startBalance-rent);
 
-		GUI.showMessage("");
+		GUI.showMessage("TC02");
 		GUI.close();
 	}
 
@@ -55,8 +55,7 @@ public class GameTest {
 		int rent = 100;
 		
 	//First case we let the player buy the territory
-		GameTestMode game = new GameTestMode();
-		DiceCupTestMode dice = new DiceCupTestMode(2,6);
+		game.resetGame(2, startBalance);
 		dice.setValues(diceValues);
 		Player nextPlayer = game.playTurn(game.getPlayers()[0], dice);
 
@@ -72,7 +71,7 @@ public class GameTest {
 		assertEquals(game.getPlayers()[0].getBalance(), startBalance-price+rent);
 		assertEquals(game.getPlayers()[1].getBalance(), startBalance-rent);
 
-		GUI.showMessage("");
+		GUI.showMessage("TC03");
 		GUI.close();
 	}
 
@@ -87,8 +86,7 @@ public class GameTest {
 		int bonus = 500;
 		
 	//Player lands on refuge and receives bonus
-		GameTestMode game = new GameTestMode();
-		DiceCupTestMode dice = new DiceCupTestMode(2,6);
+		game.resetGame(2, startBalance);
 		dice.setValues(diceValues);
 		Player nextPlayer = game.playTurn(game.getPlayers()[0], dice);
 
@@ -96,7 +94,7 @@ public class GameTest {
 		assertEquals(game.getPlayers()[0].getBalance(), startBalance+bonus);
 		assertEquals(game.getPlayers()[1].getBalance(), startBalance);
 
-		GUI.showMessage("");
+		GUI.showMessage("TC04");
 		GUI.close();
 	}
 
@@ -112,8 +110,7 @@ public class GameTest {
 		int rent = 100*7;
 		
 	//First case we let the player buy the territory
-		GameTestMode game = new GameTestMode();
-		DiceCupTestMode dice = new DiceCupTestMode(2,6);
+		game.resetGame(2, startBalance);
 		dice.setValues(diceValues);
 		Player nextPlayer = game.playTurn(game.getPlayers()[0], dice);
 
@@ -129,7 +126,7 @@ public class GameTest {
 		assertEquals(game.getPlayers()[0].getBalance(), startBalance-price+rent);
 		assertEquals(game.getPlayers()[1].getBalance(), startBalance-rent);
 
-		GUI.showMessage("");
+		GUI.showMessage("TC05");
 		GUI.close();
 	}
 
@@ -144,9 +141,7 @@ public class GameTest {
 		int taxAmount = 2000;
 		
 	//First case player lands on field 2
-		GameTestMode game = new GameTestMode();
 		game.resetGame(2, 7000);
-		DiceCupTestMode dice = new DiceCupTestMode(2,6);
 		dice.setValues(diceValues);
 		Player nextPlayer = game.playTurn(game.getPlayers()[0], dice);
 
@@ -170,7 +165,7 @@ public class GameTest {
 		
 		assertEquals(game.getPlayers()[1].getBalance(), startBalance);
 
-		GUI.showMessage("");
+		GUI.showMessage("TC06");
 		GUI.close();
 	}
 
@@ -185,9 +180,7 @@ public class GameTest {
 		int[] diceValues = new int[]{1,1};
 		
 	//Player lands on field 2
-		GameTestMode game = new GameTestMode();
 		game.resetGame(playerAmount, startBalance);
-		DiceCupTestMode dice = new DiceCupTestMode(2,6);
 		dice.setValues(diceValues);
 		Player currentPlayer = game.getPlayers()[0];
 		Player nextPlayer = game.playTurn(currentPlayer, dice);
@@ -196,7 +189,7 @@ public class GameTest {
 		assertEquals(currentPlayer.getBalance(), 0);
 		assertEquals(game.getPlayerArrayLength(),1);
 
-		GUI.showMessage("");
+		GUI.showMessage("TC07");
 		GUI.close();
 	}
 
@@ -211,9 +204,7 @@ public class GameTest {
 		int[] diceValues = new int[]{1,1};
 		
 	//Player lands on field 2
-		GameTestMode game = new GameTestMode();
 		game.resetGame(playerAmount, startBalance);
-		DiceCupTestMode dice = new DiceCupTestMode(2,6);
 		dice.setValues(diceValues);
 		Player currentPlayer = game.getPlayers()[0];
 		Player nextPlayer = game.playTurn(currentPlayer, dice);
@@ -222,7 +213,7 @@ public class GameTest {
 		assertEquals(currentPlayer.getBalance(), 0);
 		assertEquals(game.getPlayerArrayLength(),playerAmount-1);
 
-		GUI.showMessage("");
+		GUI.showMessage("TC08");
 		GUI.close();
 	}
 
@@ -238,9 +229,7 @@ public class GameTest {
 		int[] diceValues = new int[]{4,1};
 		
 	//Player lands on field 5
-		GameTestMode game = new GameTestMode();
 		game.resetGame(playerAmount, startBalance);
-		DiceCupTestMode dice = new DiceCupTestMode(2,6);
 		dice.setValues(diceValues);
 		Player currentPlayer = game.getPlayers()[0];
 		Player nextPlayer = game.playTurn(currentPlayer, dice);
