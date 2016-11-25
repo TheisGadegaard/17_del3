@@ -145,7 +145,11 @@ public class Board {
 		}
 		return text;
 	}
-	private String determineRent(int fn){
+	// The GUI is not able to show messages on multiple lines
+	// on the centerpiece of the GUI. The messages below have
+	// been adjusted to fit with the GUI, so it might not be
+	// obvious how "fleet" and "labor camp" works.
+	private String determineRent(int fn){ //Rent:
 		String rent = "";
 		if(fields[fn] instanceof Territory){
 			rent += Messages.getGMessages()[22] + String.valueOf((((Territory) fields[fn]).getRent()));
