@@ -1,7 +1,9 @@
 package diceGame;
 
+import desktop_resources.GUI;
+
 public class Player {
-	
+
 	private int id;
 	private int balance;
 	private String name;
