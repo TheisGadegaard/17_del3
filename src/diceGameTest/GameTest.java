@@ -139,12 +139,13 @@ public class GameTest {
 	 */
 	@Test
 	public void TC05() {
-		int startBalance = 5000;
+		int startBalance = 7000;
 		int[] diceValues = new int[]{1,1};
 		int taxAmount = 2000;
 		
 	//First case player lands on field 2
 		GameTestMode game = new GameTestMode();
+		game.resetGame(2, 7000);
 		DiceCupTestMode dice = new DiceCupTestMode(2,6);
 		dice.setValues(diceValues);
 		Player nextPlayer = game.playTurn(game.getPlayers()[0], dice);
@@ -160,7 +161,13 @@ public class GameTest {
 		nextPlayer = game.playTurn(game.getPlayers()[0], dice);
 
 		assertEquals(nextPlayer, game.getPlayers()[1]);
-		assertEquals((int)(game.getPlayers()[0].getBalance()),(int)(startBalance-taxAmount-(taxRate*(startBalance-taxAmount))));
+		if(game.getPlayers()[0].getBalance()==1000){
+			assertEquals((int)(game.getPlayers()[0].getBalance()),(int)(startBalance-taxAmount-4000));
+		}
+		else{
+			assertEquals((int)(game.getPlayers()[0].getBalance()),(int)(startBalance-taxAmount-(taxRate*(startBalance-taxAmount))));
+		}
+		
 		assertEquals(game.getPlayers()[1].getBalance(), startBalance);
 
 		GUI.showMessage("");
