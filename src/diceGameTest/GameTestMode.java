@@ -39,5 +39,9 @@ public class GameTestMode extends Game {
 		currentPlayer.setDiceSum(dice.getSum());
 		GUI.setDice(dice.getValues()[0], dice.getValues()[1]);
 	}
+	
+	protected Board getBoard(){
+		return board;
+	}
 
 }
