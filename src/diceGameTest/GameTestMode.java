@@ -33,7 +33,7 @@ public class GameTestMode extends Game {
 		return nextPlayer;
 	}
 	
-	protected void throwDice(Player currentPlayer, DiceCupTestMode dice){
+	public void throwDice(Player currentPlayer, DiceCupTestMode dice){
 		this.dice = dice;
 		
 		currentPlayer.setDiceSum(dice.getSum());
@@ -44,4 +44,9 @@ public class GameTestMode extends Game {
 		return board;
 	}
 
+	@Override
+	public void movePiece(Player currentPlayer) {
+		super.movePiece(currentPlayer);
+	}
+	
 }
