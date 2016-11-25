@@ -23,7 +23,7 @@ public class GameTest {
 		int rent = 500;
 		
 	//First case we let the player buy the fleet
-		GUI.showMessage("TC01");
+		GUI.showMessage("TC01: Vælg 'Ja'");
 		dice.setValues(diceValues);
 		Player nextPlayer = game.playTurn(game.getPlayers()[0], dice);
 
@@ -39,7 +39,6 @@ public class GameTest {
 		assertEquals(game.getPlayers()[0].getBalance(), startBalance-price+rent);
 		assertEquals(game.getPlayers()[1].getBalance(), startBalance-rent);
 
-		GUI.showMessage("TC02");
 		GUI.close();
 	}
 
@@ -55,6 +54,8 @@ public class GameTest {
 		int rent = 100;
 		
 	//First case we let the player buy the territory
+		GUI.showMessage("TC02: Vælg 'Ja'");
+		
 		game.resetGame(2, startBalance);
 		dice.setValues(diceValues);
 		Player nextPlayer = game.playTurn(game.getPlayers()[0], dice);
@@ -71,7 +72,6 @@ public class GameTest {
 		assertEquals(game.getPlayers()[0].getBalance(), startBalance-price+rent);
 		assertEquals(game.getPlayers()[1].getBalance(), startBalance-rent);
 
-		GUI.showMessage("TC03");
 		GUI.close();
 	}
 
@@ -88,13 +88,13 @@ public class GameTest {
 	//Player lands on refuge and receives bonus
 		game.resetGame(2, startBalance);
 		dice.setValues(diceValues);
+		GUI.showMessage("TC03");
 		Player nextPlayer = game.playTurn(game.getPlayers()[0], dice);
 
 		assertEquals(nextPlayer, game.getPlayers()[1]);
 		assertEquals(game.getPlayers()[0].getBalance(), startBalance+bonus);
 		assertEquals(game.getPlayers()[1].getBalance(), startBalance);
 
-		GUI.showMessage("TC04");
 		GUI.close();
 	}
 
@@ -112,6 +112,7 @@ public class GameTest {
 	//First case we let the player buy the territory
 		game.resetGame(2, startBalance);
 		dice.setValues(diceValues);
+		GUI.showMessage("TC04: Vælg 'Ja'");
 		Player nextPlayer = game.playTurn(game.getPlayers()[0], dice);
 
 		assertEquals(nextPlayer, game.getPlayers()[1]);
@@ -126,7 +127,6 @@ public class GameTest {
 		assertEquals(game.getPlayers()[0].getBalance(), startBalance-price+rent);
 		assertEquals(game.getPlayers()[1].getBalance(), startBalance-rent);
 
-		GUI.showMessage("TC05");
 		GUI.close();
 	}
 
@@ -142,6 +142,7 @@ public class GameTest {
 		
 	//First case player lands on field 2
 		game.resetGame(2, 7000);
+		GUI.showMessage("TC05");
 		dice.setValues(diceValues);
 		Player nextPlayer = game.playTurn(game.getPlayers()[0], dice);
 
@@ -150,6 +151,7 @@ public class GameTest {
 		assertEquals(game.getPlayers()[1].getBalance(), startBalance);
 		
 	//Second case player lands on field 13
+		GUI.showMessage("Vælg 'Betal 10%'");
 		double taxRate = 0.1;
 		diceValues = new int[]{5,6};
 		dice.setValues(diceValues);
@@ -165,7 +167,6 @@ public class GameTest {
 		
 		assertEquals(game.getPlayers()[1].getBalance(), startBalance);
 
-		GUI.showMessage("TC06");
 		GUI.close();
 	}
 
@@ -183,13 +184,13 @@ public class GameTest {
 		game.resetGame(playerAmount, startBalance);
 		dice.setValues(diceValues);
 		Player currentPlayer = game.getPlayers()[0];
+		GUI.showMessage("TC06");
 		Player nextPlayer = game.playTurn(currentPlayer, dice);
 
 		assertEquals(nextPlayer, game.getPlayers()[0]);
 		assertEquals(currentPlayer.getBalance(), 0);
 		assertEquals(game.getPlayerArrayLength(),1);
 
-		GUI.showMessage("TC07");
 		GUI.close();
 	}
 
@@ -206,14 +207,13 @@ public class GameTest {
 	//Player lands on field 2
 		game.resetGame(playerAmount, startBalance);
 		dice.setValues(diceValues);
+		GUI.showMessage("TC07");
 		Player currentPlayer = game.getPlayers()[0];
 		Player nextPlayer = game.playTurn(currentPlayer, dice);
 
 		assertEquals(nextPlayer, game.getPlayers()[0]);
 		assertEquals(currentPlayer.getBalance(), 0);
 		assertEquals(game.getPlayerArrayLength(),playerAmount-1);
-
-		GUI.showMessage("TC08");
 		GUI.close();
 	}
 
@@ -231,6 +231,7 @@ public class GameTest {
 	//Player lands on field 5
 		game.resetGame(playerAmount, startBalance);
 		dice.setValues(diceValues);
+		GUI.showMessage("TC08: Vælg 'Ja'");
 		Player currentPlayer = game.getPlayers()[0];
 		Player nextPlayer = game.playTurn(currentPlayer, dice);
 
@@ -238,7 +239,6 @@ public class GameTest {
 		assertEquals(currentPlayer.getBalance(), startBalance-price);
 		assertEquals(currentPlayer,((Ownable) game.getBoard().getFields()[4]).getOwner());
 		
-		GUI.showMessage("");
 		GUI.close();
 	}
 }
