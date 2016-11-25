@@ -64,6 +64,7 @@ public class Board {
 											.setTitle(Messages.getFNames()[i])
 											.setDescription(Messages.getFNames()[i])
 											.setSubText(determineSubText(i))
+											.setRent(determineRent(i))
 											.build();	
 		}
 		
@@ -127,6 +128,7 @@ public class Board {
 		if(fields[fn] instanceof Ownable){
 			text += Messages.getBMessages()[0]; //Price:
 			text += " " + String.valueOf(((Ownable) fields[fn]).getPrice());
+			
 		}
 		else if(fields[fn] instanceof Tax){
 			text += Messages.getBMessages()[3]; //Pay:
@@ -142,5 +144,19 @@ public class Board {
 			text += " " + String.valueOf(((Refuge) fields[fn]).getBonus());
 		}
 		return text;
+	}
+	private String determineRent(int fn){
+		String rent = "";
+		if(fields[fn] instanceof Territory){
+			rent += Messages.getGMessages()[22] + String.valueOf((((Territory) fields[fn]).getRent()));
+		}
+		else if(fields[fn] instanceof Fleet){
+			rent += Messages.getGMessages()[23];
+		}
+		else if(fields[fn] instanceof LaborCamp){
+			rent += Messages.getGMessages()[24];
+		}
+		
+		return rent;
 	}
 }

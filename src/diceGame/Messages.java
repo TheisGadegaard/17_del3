@@ -79,9 +79,9 @@ public class Messages {
 	/*19*/	"Du modtager ",
 	/*20*/	"Du er landet på din egen ejendom og nyder de dejlige omgivelser.",
 	/*21*/	"Ejeren af denne ejendom er gået bankerot, og du slipper derfor for at betale leje.",
-	/*22*/	"",
-	/*23*/	"",
-	/*24*/	"",
+	/*22*/	"Leje: ",
+	/*23*/	"Leje: 500, 1000, 2000, 5000",
+	/*24*/	"Leje: 100*øjne*labor camps ejet",
 	/*25*/  "Du har ikke nok penge til at købe dette felt.",
 	};
 
