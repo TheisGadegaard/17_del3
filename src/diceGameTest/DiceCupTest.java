@@ -79,5 +79,5 @@ public class DiceCupTest {
 		assertEquals(Fail, false);
   
 	}
-
+  
 }
